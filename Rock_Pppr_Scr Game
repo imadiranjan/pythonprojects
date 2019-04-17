@@ -1,0 +1,54 @@
+'''Rock Paper Scissors Game: You can develop your first Python game
+with a simple project where the developer will have to create the game
+of rock-paper-scissors. The player will have to pick rock, paper or scissors
+and the computer will choose the move. Then the winner will be decided and
+the results printed. In this project, the developer is expected to have the
+following subgoals:
+
+
+Give the player the option to play again
+Keep a record of the score'''
+
+
+
+import random
+
+
+f=open("output.txt","a+")
+while True:
+ print("Choose one of the follwoing \n 1.Rock \n 2.Paper \n 3.Scissor")
+ choice=int(input())
+ ui={1:"Rock",2:"Paper",3:"Scissor"}[choice]
+ options=["Rock","Paper","Scissor"]
+ pi=random.choice(options)
+ print("pc has choosen {}".format(pi))
+
+ if ui=="Rock" :              #reduce this code
+    if pi=="Rock" :
+        print("Draw",file=f)
+    elif pi=="Paper":
+        print("Pc won",file=f)
+    elif pi=="Scissors":
+        print("User Won",file=f)
+ elif ui=="Paper":
+    if pi=="Rock":
+        print("User Won",file=f)
+    elif pi=="Paper":
+        print("Draw",file=f)
+    elif pi=="Scissor":
+        print("Pc won",file=f)
+ elif ui=="Scissor":
+    if pi=="Rock":
+        print("Pc Won",file=f)
+    elif pi=="Paper":
+        print("User Won",file=f)
+    elif pi=="Scissor":
+        print("Draw",file=f)
+ print("Do you want to play again? \n 1.Yes \n 2.No")
+ pa=int(input())
+ if pa==1:
+     continue
+ elif pa==2:
+     break
+f=open("output.txt","r")
+print (f.read())
